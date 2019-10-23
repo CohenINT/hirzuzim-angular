@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeadlinesComponent } from './headlines/headlines.component';
+import { AddAudioComponent } from './add-audio/add-audio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeadlinesComponent
+    HeadlinesComponent,
+    AddAudioComponent
   ],
   imports: [
     BrowserModule,
