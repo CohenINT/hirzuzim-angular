@@ -1,10 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeadlinesComponent } from './headlines/headlines.component';
 import { AddAudioComponent } from './add-audio/add-audio.component';
+import {HttpClientModule} from '@angular/common/http';
+import { AddAudioService } from './services/add-audio.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +18,12 @@ import { AddAudioComponent } from './add-audio/add-audio.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AddAudioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
