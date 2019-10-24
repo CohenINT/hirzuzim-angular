@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { debug } from 'util';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddAudioService {
 
-   private _postAudio = "http://localhost:4400/addFile";
+   private _postAudio = 'http://localhost:4400/api/v1/hizruz';
 
    _headers: HttpHeaders = new HttpHeaders().append('content-type', 'multipart/form-data').append('Access-Control-Allow-Origin','*').append("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT").append("Access-Control-Allow-Headers",'Access-Control-Allow-Origin');
-  constructor(private _http: HttpClient) {
+  constructor(private _http: HttpClient,private router: Router) {
 
    }
 
@@ -21,10 +22,11 @@ export class AddAudioService {
 
 
     this._http.post(this._postAudio, $fd,{headers:this._headers})
-    .subscribe( result => {
+    .subscribe( ( data : any ) => {
 
-      //TODO: check it is info from response
-      alert(result);
+    console.log(data);
+    debugger;
+
     });
   }
 

@@ -10,6 +10,17 @@ import { AddAudioComponent } from './add-audio/add-audio.component';
 import {HttpClientModule} from '@angular/common/http';
 import { AddAudioService } from './services/add-audio.service';
 
+//nodejs+ angular fusion
+
+import { Routes, RouterModule } from '@angular/router';
+
+const routes: Routes =[
+  {
+    path: '',
+    component: AppComponent
+  }
+];
+
 @NgModule({
   declarations: [
     AppComponent,
