@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeadlinesComponent } from './headlines/headlines.component';
 import { AddAudioComponent } from './add-audio/add-audio.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule,HttpClient} from '@angular/common/http';
 import { AddAudioService } from './services/add-audio.service';
 
 //nodejs+ angular fusion

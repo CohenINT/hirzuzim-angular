@@ -2,7 +2,8 @@
 
 <div class="container mt-5  d-flex justify-content-center">
 
- <div [formGroup]= "form"  class="row input-group p-5">
+  <form [formGroup]= "form"    >
+ <div  class="row input-group p-5">
    <div class="col">
      <input type="text" class="form-control" formControlName="firstName" placeholder="שם פרטי">
    </div>
@@ -16,7 +17,7 @@
 
   <button onclick="document.getElementById('myfile').click();" class="btn-loader">העלה קובץ</button>
 
-  <input type="file" style="width:40px; background-color:red; height:30px;"  accept=".mp3,.wav,.ogg,.mp4" id="myfile" name="myfile" (change) = "createFormData($event)"/>
+  <input type="file" style="width:40px; background-color:red; height:30px;" [formEnctype]="formtype" accept=".mp3,.wav,.ogg,.mp4" id="myfile" name="myfile" (change) = "createFormData($event)"/>
   <br>
   <p><small>audio files only</small></p>
   <button class="btn btn-dark" (click) = "upload()" >שלח טופס</button>
@@ -26,4 +27,7 @@
     </div>
   </div>
  </div>
+
+</form>
+
 </div>
