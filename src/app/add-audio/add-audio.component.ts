@@ -12,19 +12,12 @@ import {FormControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class AddAudioComponent implements OnInit {
 
-  uploadForm: FormGroup;
-
+    form;
    firstName = '';
   lastName = '';
   selectedFile: File = null;
   fd = new FormData();
-  url = "localhost:4400\postNewAudio";
-  form = new FormGroup({
-    firstName:new FormControl("",Validators.minLength(1)),
-    lastName:new FormControl("",Validators.minLength(1)),
-
-
-  });
+  url = "localhost:4400\\postNewAudio";
 
 
   constructor(private _addService: AddAudioService,private formBuilder: FormBuilder) { }
@@ -33,17 +26,12 @@ export class AddAudioComponent implements OnInit {
   createFormData(event) {
     this.selectedFile = event.target.files[0] as File;
 
-    this.form=new FormGroup({
-      firstName:new FormControl("",Validators.minLength(1)),
-      lastName:new FormControl("",Validators.minLength(1)),
-      file:new FormControl(null,[Validators.required])
-    });
-    debugger;
-    // this.uploadForm.get('myfile').setValue(event.target.files[0] as File);
 
-    this.fd.append("file",this.selectedFile, this.selectedFile.name);
+
+    this.fd.append("myfile",this.selectedFile, this.selectedFile.name);
     this.fd.append("firstname",this.form.value.firstName);
     this.fd.append("lastname",this.form.value.lastName);
+
 
 
 
@@ -51,15 +39,21 @@ export class AddAudioComponent implements OnInit {
   upload() {
 
 
-     this._addService.upload(this.form);
+     this._addService.upload(this.fd);
   }
 
 
 
   ngOnInit() {
-    this.uploadForm = this.formBuilder.group({
-      profile: ['']
-    });
+    // this.uploadForm = this.formBuilder.group({
+    //   profile: ['']
+    // });
+    this.form = new FormGroup({
+      firstName: new FormControl(),
+      lastName:new FormControl(),
+      myfile:new FormControl()
+
+   });
   }
 
 }
