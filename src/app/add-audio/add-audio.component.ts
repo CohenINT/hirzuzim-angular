@@ -12,8 +12,8 @@ import {FormControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class AddAudioComponent implements OnInit {
 
-    form;
-   firstName = '';
+  form;
+  firstName = '';
   lastName = '';
   selectedFile: File = null;
   fd = new FormData();
@@ -24,13 +24,13 @@ export class AddAudioComponent implements OnInit {
 
   formtype = "multipart/form-data";
   createFormData(event) {
-    this.selectedFile = event.target.files[0] as File;
+  this.selectedFile = event.target.files[0] as File;
 
 
 
-    this.fd.append("myfile",this.selectedFile, this.selectedFile.name);
-    this.fd.append("firstname",this.form.value.firstName);
-    this.fd.append("lastname",this.form.value.lastName);
+  this.fd.append("myfile",this.selectedFile, this.selectedFile.name);
+  this.fd.append("firstname",this.form.value.firstName);
+  this.fd.append("lastname",this.form.value.lastName);
 
 
 
@@ -49,9 +49,9 @@ export class AddAudioComponent implements OnInit {
     //   profile: ['']
     // });
     this.form = new FormGroup({
-      firstName: new FormControl(),
-      lastName:new FormControl(),
-      myfile:new FormControl()
+    firstName: new FormControl(),
+    lastName:new FormControl(),
+    myfile:new FormControl()
 
    });
   }

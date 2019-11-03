@@ -7,7 +7,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class AddAudioService {
 
-   private _postAudio = 'http://localhost:4400/hizruz';
+   private postAudio = 'http://localhost:4400/hizruz';
 
 
  //  _headers: HttpHeaders = new HttpHeaders().append('Access-Control-Allow-Origin','*').append("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT").append("Access-Control-Allow-Headers",'Access-Control-Allow-Origin');
@@ -18,10 +18,10 @@ export class AddAudioService {
   upload($fd) {
 
 
-    this.httpClient.post<any>(this._postAudio, $fd)
+    this.httpClient.post<any>(this.postAudio, $fd)
     .subscribe(
-      (res) =>console.log(res),
-      (err) =>console.log(err)
+      res => console.log(res),
+      err => console.log(err)
     );
   }
 
