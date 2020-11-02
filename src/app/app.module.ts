@@ -14,7 +14,7 @@ import { AddAudioService } from './services/add-audio.service';
 
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes =[
+const routes: Routes = [
   {
     path: '',
     component: AppComponent
