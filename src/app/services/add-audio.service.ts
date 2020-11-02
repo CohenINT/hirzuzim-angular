@@ -1,32 +1,21 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class AddAudioService {
+  private postAudio = "http://localhost:4400/hizruz";
 
-   private postAudio = 'http://localhost:4400/hizruz';
-
-
- //  _headers: HttpHeaders = new HttpHeaders().append('Access-Control-Allow-Origin','*').append("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT").append("Access-Control-Allow-Headers",'Access-Control-Allow-Origin');
-  constructor( private httpClient: HttpClient) {}
-
-
+  //  _headers: HttpHeaders = new HttpHeaders().append('Access-Control-Allow-Origin','*').append("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT").append("Access-Control-Allow-Headers",'Access-Control-Allow-Origin');
+  constructor(private httpClient: HttpClient) {}
 
   upload($fd) {
-
-
-    this.httpClient.post<any>(this.postAudio, $fd)
-    .subscribe(
-      res => console.log(res),
-      err => console.log(err)
+    this.httpClient.post<any>(this.postAudio, $fd).subscribe(
+      (res) => console.log(res),
+      (err) => console.log(err)
     );
   }
-
-
-
 
   /*
   Note:
@@ -36,7 +25,4 @@ export class AddAudioService {
   and this for the form and such:
   https://stackoverflow.com/questions/49993908/angular-and-nodejs-sending-image
   */
-
-
-
 }
