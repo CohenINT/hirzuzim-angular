@@ -1,11 +1,23 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import {Routes , RouterModule} from '@angular/router';
+import { AddAudioComponent } from './add-audio/add-audio.component';
+import { AppComponent } from './app.component';
 
 
-const routes: Routes = [];
+
+const routes: Routes = [
+{ path: '*', component: AppComponent},
+{ path: 'upload', component: AddAudioComponent}
+
+
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  declarations: [],
+  imports: [
+    CommonModule , RouterModule.forRoot(routes)
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

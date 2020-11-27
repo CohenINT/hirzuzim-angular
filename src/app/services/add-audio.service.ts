@@ -1,13 +1,15 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { Observable } from 'rxjs';
+
 
 @Injectable({
-  providedIn: "root",
+  providedIn: "root"
 })
 export class AddAudioService {
-  private postAudio = "http://localhost:4400/hizruz";
+  private postAudio = "http://localhost:4400/hizruz/upload";
 
-  //  _headers: HttpHeaders = new HttpHeaders().append('Access-Control-Allow-Origin','*').append("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT").append("Access-Control-Allow-Headers",'Access-Control-Allow-Origin');
+  //_headers: HttpHeaders = new HttpHeaders().append('Access-Control-Allow-Origin','*').append("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT").append("Access-Control-Allow-Headers",'Access-Control-Allow-Origin');
   constructor(private httpClient: HttpClient) {}
 
   upload($fd) {
@@ -15,6 +17,14 @@ export class AddAudioService {
       (res) => console.log(res),
       (err) => console.log(err)
     );
+  }
+
+  stream($buffer: any): Observable<{}>
+  {
+    console.log($buffer);
+
+    return this.httpClient.post<any>(this.postAudio, $buffer);
+
   }
 
   /*
